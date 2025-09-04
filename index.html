@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard Pro</h1>
+                <p>Real-time weather data with advanced forecasting</p>
+            </div>
+            <div class="header-controls">
+                <div class="unit-toggle">
+                    <span class="active" data-unit="celsius">°C</span>
+                    <span class="toggle-switch">
+                        <input type="checkbox" id="unit-toggle">
+                        <label for="unit-toggle"></label>
+                    </span>
+                    <span data-unit="fahrenheit">°F</span>
+                </div>
+                <button class="refresh-btn" id="refreshAll">
+                    <i class="fas fa-sync-alt"></i> Refresh All
+                </button>
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="default-cities">
+            <button class="default-city-btn" data-city="New York">
+                <i class="fas fa-city"></i> New York
+            </button>
+            <button class="default-city-btn" data-city="London">
+                <i class="fas fa-landmark"></i> London
+            </button>
+            <button class="default-city-btn" data-city="Tokyo">
+                <i class="fas fa-torii-gate"></i> Tokyo
+            </button>
+            <button class="default-city-btn" data-city="Paris">
+                <i class="fas fa-monument"></i> Paris
+            </button>
+            <button class="default-city-btn" data-city="Sydney">
+                <i class="fas fa-opera-house"></i> Sydney
+            </button>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" id="cityInput" placeholder="Enter city name...">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-plus"></i> Add City
+                </button>
+            </div>
+            <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+
+        <div class="dashboard-controls">
+            <div class="sort-options">
+                <span>Sort by:</span>
+                <select id="sortSelect">
+                    <option value="name">Name</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="added">Recently Added</option>
+                </select>
+            </div>
+            <div class="view-options">
+                <button class="view-btn active" data-view="grid">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" data-view="list">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="cities-container grid-view" id="citiesContainer">
+            <div class="cities-grid" id="citiesGrid"></div>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-cloud"></i>
+            <h2>No Cities Added Yet</h2>
+            <p>Search for a city or select one from the options above to get started</p>
+        </div>
+    </div>
+
+    <div class="modal" id="cityModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModalBtn" aria-label="Close">&times;</span>
+            <h2 id="modalTitle">City Details</h2>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Weather Dashboard Pro &copy; 2025 | Data provided by OpenWeather</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
